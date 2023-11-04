@@ -1,0 +1,451 @@
+Problem 1:
+
+#include <stdio.h>
+
+
+int main(void)
+{
+  int val_min, val_max, i, size;
+  printf("Enter the minimum value followed by maximum value");
+  scanf("%d %d", val_min, val_max);
+  size = val_max - val_min - 1;
+  int arr[size];
+  for (i = 0; i < size; i++)
+  {
+    arr[i] = i + val_min + 1;
+  }
+  return (0);
+}
+
+------------------------------------------------------------
+Problem 2:
+
+#include <stdio.h>
+
+
+int main(void)
+{
+  int size, i, arr[100], freq[10] = {0};
+  printf("Enter the size of the array(Maximum 100): ");
+  scanf("%d", &size);
+  printf("Enter the Elements of the array: ");
+  for (i = 0; i < size; i++)
+  {
+  scanf("%d", &arr[i]);
+  freq[arr[i]]++;
+  }
+  for (i = 0; i < 10; i++)
+  {
+    printf("Number %d is repeated %d times.\n", i, freq[i]);
+  }
+  
+  return (0);
+}
+
+-------------------------------------------------------------
+
+Problem 3:
+
+#include <stdio.h>
+
+#define SIZE 100
+int main(void)
+{
+    int arr[SIZE], i, siz, element, idx = -1;
+
+    printf("Enter the size of array(MAXIMUM 100): ");
+    scanf("%d", &siz);
+    for (i = 0; i < siz; i++)
+    {
+        printf("Enter value no. %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the element you want to search for: ");
+    scanf("%d", &element);
+
+    for (i = 0; i < siz; i++)
+    {
+        if (arr[i] == element)
+        {
+            idx = i;
+            break;
+        }
+    }
+    if (idx != -1)
+        printf("Element %d is found at index %d\n", element, idx);
+    else
+        printf("Element not found\n");
+    return 0;
+}
+
+-------------------------------------------------------------------
+Problem 4:
+#include <stdio.h>
+#include <limits.h>
+
+#define SIZE 100
+
+void print_array(int arr[], int size);
+void sort_array(int arr[], int size);
+
+int main()
+{
+    int arr[SIZE], i, user_size;
+    printf("Enter the size of the array (maximum 100): ");
+    scanf("%d", &user_size);
+    for (i = 0; i < user_size; i++)
+    {
+        printf("Enter the element no. %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    printf("\nArray Before Sorting:\n\n");
+    print_array(arr, user_size);
+    sort_array(arr, user_size);
+    printf("Array After Sorting:\n\n");
+    print_array(arr, user_size);
+
+    return 0;
+}
+
+void print_array(int arr[], int size)
+{
+    int i;
+    printf("Array:\n");
+    for(i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n\n");
+}
+
+void sort_array(int arr[], int size)
+{
+    int i, j, min = INT_MAX, min_index = -1;
+
+    for (i = 0; i < size; i++)
+    {
+        int temp;
+        for (j = i; j < size; j++)
+        {
+            if (arr[j] < min)
+            {
+                min = arr[j];
+                min_index = j;
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[min_index];
+        arr[min_index] = temp;
+        min = INT_MAX;
+    }
+}
+
+___________________________________________________________________
+___________________________________________________________________
+____________________________Assignment_____________________________
+___________________________________________________________________
+___________________________________________________________________
+
+Problem 1:
+
+#include <stdio.h>
+#include <limits.h>
+
+#define SIZE 10
+
+/******** Function Prototypes Start *********/
+
+int minimum_element_array(int arr[], int size);
+int maximum_element_array(int arr[], int size);
+int sum_array(int arr[], int size);
+
+/******** Function Prototypes End ***********/
+
+int main()
+{
+    int arr[SIZE], i, highest, lowest, sum;
+
+    printf("Enter the 10 values:\n");
+    for (i = 0; i < SIZE; i++)
+    {
+        printf("Enter value no. %d : ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+    highest = maximum_element_array(arr, SIZE);
+    lowest = minimum_element_array(arr, SIZE);
+    sum = sum_array(arr, SIZE);
+    printf("The sum = %d\nThe maximum element = %d\nThe minimum element = %d\n", sum, highest, lowest);
+}
+
+/***** Sub Programs Start *****/
+
+int sum_array(int arr[], int size)
+{
+    int sum = 0, i;
+
+    for (i = 0; i < size; i++)
+    {
+        sum += arr[i];
+    }
+    return (sum);
+}
+
+int maximum_element_array(int arr[], int size)
+{
+    int highest = INT_MIN, i;
+
+    for (i = 0; i < size; i++)
+    {
+        if (arr[i] > highest)
+            highest = arr[i];
+    }
+    return (highest);
+}
+
+int minimum_element_array(int arr[], int size)
+{
+    int lowest = INT_MAX, i;
+
+    for (i = 0; i < size; i++)
+    {
+        if (arr[i] < lowest)
+            lowest = arr[i];
+    }
+    return (lowest);
+}
+
+/***** Sub Programs End *******/
+
+-------------------------------------------------
+Problem 2:
+
+#include <stdio.h>
+#include <limits.h>
+
+#define SIZE 10
+
+/******** Function Prototypes Start *********/
+
+void fill_matrix(int matrix[][3], int size);
+void print_matrix(int matrix[][3], int size);
+void multiply_matrices(int first[][3], int second[][3], int result[][3]);
+
+/******** Function Prototypes End ***********/
+
+int main()
+{
+    int matrix1[3][3], matrix2[3][3], result[3][3];
+
+    printf("Matrix 1: \n");
+    fill_matrix(matrix1, 3);
+    printf("Matrix 2: \n");
+    fill_matrix(matrix2, 3);
+
+    printf("Matrix 1: \n");
+    print_matrix(matrix1, 3);
+    printf("Matrix 2: \n");
+    print_matrix(matrix2, 3);
+
+    multiply_matrices(matrix1, matrix2, result);
+    printf("Result: \n");
+    print_matrix(result, 3);
+
+    return (0);
+}
+
+/***** Sub Programs Start *****/
+
+void fill_matrix(int matrix[][3], int size)
+{
+    int i, j;
+
+    printf("Fill the matrix:\n\n");
+    for (i = 0;i < size; i++)
+    {
+        for (j = 0; j < size; j++)
+        {
+            printf("Enter the element [%d][%d] : ", i, j);
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+    printf("\n\n");
+}
+
+void print_matrix(int matrix[][3], int size)
+{
+    int i, j;
+    printf("The Matrix content is\n");
+    for (i = 0; i < size; i++)
+    {
+        for (j = 0; j < size; j++)
+        {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void multiply_matrices(int first[][3], int second[][3], int arr[][3])
+{
+    int i, j;
+
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            arr[i][j] = (first[i][0] * second[0][j]);
+            arr[i][j] += (first[i][1] * second[1][j]);
+            arr[i][j] += (first[i][2] * second[2][j]);
+
+        }
+    }
+}
+
+/***** Sub Programs End *******/
+
+
+==========================================================
+Problem 3:
+
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char first_name[50], last_name[50], full_name[100] = "";
+    printf("Enter the first Name: ");
+    gets(first_name);
+    printf("Enter the last Name: ");
+    gets(last_name);
+    strcat(full_name, first_name);
+    strcat(full_name, last_name);
+    printf("The full name is: ");
+    puts(full_name);
+
+    return (0);
+}
+
+
+
+Problem 4:
+
+#include <stdio.h>
+
+
+int main()
+{
+    char name[100];
+    int freq_u[26] = {0},freq_l[26] = {0}, i = 0;
+    printf("Enter the name: ");
+    gets(name);
+    while (name[i] != '\0')
+    {
+        if (name[i] >= 'a' && name[i] <= 'z' && freq_l[name[i] - 'a'] == 0)
+        {
+            printf("%c", name[i]);
+            freq_l[name[i] - 'a']++;
+        }
+        else if (name[i] >= 'A' && name[i] <= 'Z' && freq_u[name[i] - 'A'] == 0)
+        {
+            printf("%c", name[i]);
+            freq_u[name[i] - 'A']++;
+        }
+        else if (name[i] == ' ')
+            printf(" ");
+        i++;
+    }
+
+    return 0;
+}
+
+
+-----------------------------------------------------------------------------
+
+Problem 5:
+
+#include <stdio.h>
+
+#define SIZE 100
+/******** Function Prototypes Start *********/
+
+void print_array(int arr[], int size);
+void fill_array(int arr[], int size);
+void zigzag_fill(int arr1[], int arr2[], int arr3[], int size);
+
+/******** Function Prototypes End ***********/
+
+int main()
+{
+    int arr1[SIZE], arr2[SIZE], arr3[2 * SIZE];
+    int i, user_size;
+
+    printf("Enter arr sizes (Maximum 100): ");
+    scanf("%d", &user_size);
+    printf("Fill array1:\n");
+    fill_array(arr1, user_size);
+    printf("Fill array2:\n");
+    fill_array(arr2, user_size);
+
+    zigzag_fill(arr1, arr2, arr3, user_size);
+    printf("Array 1 =\n");
+    print_array(arr1, user_size);
+    printf("Array 2 =\n");
+    print_array(arr2, user_size);
+    printf("Array 3 =\n");
+    print_array(arr3, user_size * 2);
+
+    return (0);
+}
+
+/***** Sub Programs Start *****/
+
+void print_array(int arr[], int size)
+{
+    int i;
+    printf("Array:\n");
+    for(i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n\n");
+}
+
+void fill_array(int arr[], int size)
+{
+    int i;
+
+    for (i = 0; i < size; i++)
+    {
+        printf("array[%d] = ", i);
+        scanf("%d", &arr[i]);
+    }
+    printf("\n\n");
+}
+
+void zigzag_fill(int arr1[], int arr2[], int arr3[], int size)
+{
+    int i;
+
+    for (i = 0; i < size; i++)
+    {
+        arr3[i * 2] = arr1[i];
+        arr3[(i * 2) + 1] = arr2[i];
+    }
+}
+
+/***** Sub Programs End *******/
+
+
+-------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+

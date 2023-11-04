@@ -1,0 +1,127 @@
+What is Programming? 
+
+file.c   --->  ...  --->  ...   --->   file.exe or file.hex i.e. (Application)
+
+Build Process:
+	step 1: Preprocessor
+		Responsible for (Text Replacement)
+		#include , #define , #ifdef , ... 
+		
+		after preprocessor it changes to 
+		file.i or file.pre  (Pure C file)
+
+
+
+	step 2: Compiler
+		Ensure the syntax is correct.
+		Output assembly code.
+		
+		after compiler it changes to 
+		file.asm
+
+	
+	step 3: Assembler
+		Convert assembly code to machine code
+
+		after compiler it changes to
+		file.o
+
+	step 4: Linker
+		link all files with each other
+
+		file_1.c + file_2.c + ... + file_n.c  ---> file.exe or file.hex
+
+
+MACROS:
+	used by #define 
+	#define PI 3.14
+	
+	int area = PI * r * r;
+
+	the #define macro remove each occurence of PI and substitute it with 3.14
+
+
+
+
+Variables:
+	each variable should have 4 things:
+	(Name, Data type, Size, Content)
+
+	int x = 5;
+
+	Name : x
+	Data type : int
+	Size : 4 bytes (Or 8 bytes according to IDE)
+	Content: 5.
+
+
+Printf: 
+	int x = 5;
+	int y = 6;
+	printf("Hello its x = %i y = %d", x, y);
+	
+		first variable (x) will be assigned to the first placeholder (%i)
+		second variable (y) will be assigned to the second placeholder (%d)
+
+	Output:
+	Hello its x = 5 y = 6
+	-----
+
+Scanf:
+	int x = 5;
+	int y = 6;
+	int z;
+
+	scanf("%i", &z);		(( User entered : 7 ))
+	
+	Note: & is called "Address of"	i.e. &z is called the address of z
+
+
+Exercise #1: Add two numbers
+
+	#include <stdio.h>
+
+	int main()
+	{
+		int x, y, sum = 0;
+		printf("Enter First number");
+		scanf("%i", &x);
+		printf("Enter Second number");
+		scanf("%i", &y);
+		sum = x + y;
+		printf("Sum = ", sum);
+		return 0;
+	}
+
+	Notes:
+		1. Initialize the sum to protect from garbage value.
+		2. Code runs sequentially, sum = x + y must come after getting the values from the user not before it
+
+
+Exercise #2: Check if a number is odd or even.
+Bonus Task: (Make sure the number is not negative)
+
+#include <stdio.h>
+
+	int main()
+	{
+	int x;
+	printf("Enter The number\n");
+	scanf("%i", &x);
+	while   (x < 0)
+	{
+		printf("Enter positive numbers only\n");
+		scanf("%i", &x);
+	}
+	if (x % 2)
+		printf("The number %i is odd.\n", x);
+	else
+		printf("The number %i is even.\n", x);
+
+	return 0;
+}
+
+
+
+	
+

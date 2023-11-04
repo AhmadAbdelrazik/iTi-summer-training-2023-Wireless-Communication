@@ -1,0 +1,106 @@
+-Declaration vs Definition
+
+Declaration: Inform the compiler of the existence of a variable or a function without assigning memory to it.
+
+Definition: Inform the compiler of a variable and define it.
+
+- Infinite loops
+
+	unsigned char j, size = 5;
+	for (j = size; j <= 0; j--)	---> infinite loop. the j variable is unsigned.
+	{
+		printf("%d", j);
+	}
+
+- ascending loop and descending loop
+
+when the condition is checking if the value is 0, it will check the PSW (register for the flags).
+the descending loop would be faster.
+
+------------------------------------------------------------------------------------------------------------
+
+-Array:
+
+- group of elements with the same data type.
+
+
+We declare the array just like a variable with square brackets ---> int x[size];
+
+We differentiate between elements of array by the number in the square brackets.
+they are ordered from x[0] to x[size - 1];
+
+there is many ways to add elements to an array.
+
+1)
+int x[8] = {1, 4, -5, 7, 9, 3, 7, 8};
+
+2)
+int x[8];
+x[0] = 1;
+x[1] = 4;
+   .
+   .
+   .
+x[8] = 8;
+
+-
+int x[5] = {2, 3}
+that means the first two elements are assigned with values of 2 and 3 and the others are assigned with 0.
+
+int x[5] = {0}
+it's a way to initialize an array with 0's.
+
+int x[] = {2, 3}
+this array will automatically assign size 2 for the array.
+
+For loop is used to fill the array
+
+
+- Accessing array
+
+	int x[8], i;
+
+	printf("Please enter the values of the array\n");
+	for (i = 0; i < 8; i++)
+	{
+		scanf("%d", &x[i]);
+	}
+
+	for (i = 0; i < 8; i++)     ----> less than the size 
+	{
+		printf("%d ", x[i]);
+	}
+
+Note: The name of the array is a pointer to the first element in the array.
+
+
+- Array as a function argument.
+
+
+	#include <stdio.h>
+
+	int sum_array(int arr[], int size);
+
+	int main()
+	{
+		int x[5] = {1, 2, 3, 4, 5}, sum;
+		sum = sum_array(x, 5);		<------- HOW TO CALL THE FUNCTION
+
+		return (0);
+	}
+
+	int sum_array(int arr[], int size) <---- THE SYNTAX TO PASS ARRAY AS AN ARGUMENT
+	{
+		int sum = 0, i;
+		for (i = 0; i < size; i++)
+		{
+			sum += arr[i];
+		}
+		return (sum);
+	}
+
+
+
+
+
+

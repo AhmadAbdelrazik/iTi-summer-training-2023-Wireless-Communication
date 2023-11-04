@@ -1,0 +1,30 @@
+/*
+ * DIO_Driver.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+
+#include "DIO_Driver.h"
+
+void DIO_init(uint8 DDRD)
+{
+	DDRD_REG = DDRD;
+}
+
+void DIO_WriteChannel(uint8 pin, uint8 bit)
+{
+	if (bit == 1)
+	{
+		Set_Bit(PORTD_REG, pin);
+	}
+	else
+	{
+		Clr_Bit(PORTD_REG, pin);
+	}
+}
+
+uint8 DIO_ReadChannel(uint8 pin)
+{
+	return (Read_Bit(PIND_REG, pin));
+}

@@ -1,0 +1,18 @@
+--------------------------------------------
+   WiMOD LoRaWAN EndNode release_notes.txt
+   2018 IMST GmbH
+--------------------------------------------
+
+
+.1 Content:
+----------------------------------------------------------------------------------------------------------
+This file contains an overview about the most important feature updates and bugfixes 
+----------------------------------------------------------------------------------------------------------
+
+.2 Release Notes:
+--------------------------------------------------------------------------
+For more details please refer to the following release notes:
+- ReleaseNotes_EU868.txt
+- ReleaseNotes_US915.txt
+- ReleaseNotes_IN865.txt
+- ReleaseNotes_AS923.txt

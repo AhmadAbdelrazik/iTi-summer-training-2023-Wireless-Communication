@@ -1,0 +1,26 @@
+/*
+ * Mem_Maps.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+
+void UART_init()
+{
+	// configure UCSRA
+	UCSRA = 0;
+
+	// configure UCSRB
+
+	Set_bit(UCSRB, TXEN);
+	Set_bit(UCSRB, RXEN);
+	Clr_bit(UCSRB, UCSZ2);
+
+	// configure UBRR
+	UBBRH = 0;
+	UBBRL = 51;
+
+	// configure UCSRC
+
+	UCSRC = 0b10000110;
+}

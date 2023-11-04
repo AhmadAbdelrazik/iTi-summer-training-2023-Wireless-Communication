@@ -1,0 +1,2 @@
+- NVRAM (Hardware vs Software)
+- 

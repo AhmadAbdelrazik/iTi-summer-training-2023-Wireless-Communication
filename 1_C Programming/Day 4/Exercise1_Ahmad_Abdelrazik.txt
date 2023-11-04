@@ -1,0 +1,43 @@
+Exercise #1: Add two numbers
+
+	#include <stdio.h>
+
+	int main()
+	{
+		int x, y, sum = 0;
+		printf("Enter First number");
+		scanf("%i", &x);
+		printf("Enter Second number");
+		scanf("%i", &y);
+		sum = x + y;
+		printf("Sum = ", sum);
+		return 0;
+	}
+
+	Notes:
+		1. Initialize the sum to protect from garbage value.
+		2. Code runs sequentially, sum = x + y must come after getting the values from the user not before it
+
+
+Exercise #2: Check if a number is odd or even.
+Bonus Task: (Make sure the number is not negative)
+
+#include <stdio.h>
+
+	int main()
+	{
+	int x;
+	printf("Enter The number\n");
+	scanf("%i", &x);
+	while   (x < 0)
+	{
+		printf("Enter positive numbers only\n");
+		scanf("%i", &x);
+	}
+	if (x % 2)
+		printf("The number %i is odd.\n", x);
+	else
+		printf("The number %i is even.\n", x);
+
+	return 0;
+}

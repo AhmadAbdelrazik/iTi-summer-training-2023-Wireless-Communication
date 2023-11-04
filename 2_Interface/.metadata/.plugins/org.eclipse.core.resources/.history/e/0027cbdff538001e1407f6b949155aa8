@@ -1,0 +1,11 @@
+/*
+ * Mem_Maps.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+
+void UART_init()
+{
+
+}

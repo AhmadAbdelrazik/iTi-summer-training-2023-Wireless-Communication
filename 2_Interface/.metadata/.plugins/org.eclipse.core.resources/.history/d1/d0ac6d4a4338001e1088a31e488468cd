@@ -1,0 +1,39 @@
+/*
+ * main.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+#include <stdio.h>
+#include "Bitwise.h"
+#include "DIO.h"
+#include "STD_Types.h"
+
+int main(void)
+{
+	while (1)
+	{
+		// SETUP
+
+		Set_Bit(DDRA_REG, 5);		// make pin5 OUTPUT
+		Clear_Bit(DDRA_REG, 0);		// make pin0 INPUT
+
+		// LOGIC
+		// DDRA : xx1x xxx0			<-- Setup of I/O	clear, set
+		// PINA : xxxx xxx?			<-- Read Input
+		// PORTA: xx1x xxxx			<-- Write output (1, 0) clear, set
+
+
+
+
+		if (Read_bit(PINA_REG, 0)) 	//
+		{
+			Set_Bit(PORTA_REG, 5);
+		}
+		else
+		{
+			Clear_Bit(PORTA_REG, 5);
+		}
+	}
+	return (0);
+}

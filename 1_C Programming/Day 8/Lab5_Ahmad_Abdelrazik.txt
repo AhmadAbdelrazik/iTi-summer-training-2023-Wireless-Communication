@@ -1,0 +1,152 @@
+Problem 1:
+
+struct car
+{
+	int carID;
+	char modelName[100];
+	int max_speed;
+	int battery_level;
+	int weight;
+}
+
+===========================
+
+Problem 2:
+
+#include <stdio.h>
+#define SIZE 100
+
+struct car
+{
+	int carID;
+	char modelName[100];
+	int max_speed;
+	int battery_level;
+	int weight;
+}
+
+int main ()
+{
+	struct car arr[SIZE];
+	int i, user_size;
+	
+	printf("Enter the number of cars (maximum 100)");
+	scanf("%d", &user_size);
+	
+	for (i = 0; i < user_size; i++)
+	{
+		printf("Enter the id of car no. %d", i + 1);
+		scanf("%d", &arr[i].carID);
+		printf("Enter the model name of car no. %d", i + 1);
+		gets(&arr[i].modelName);
+		printf("Enter the max Speed of no. %d", i + 1);
+		scanf("%d", &arr[i].max_speed);
+		printf("Enter the battery level of car no. %d", i + 1);
+		scanf("%d", &arr[i].battery_level);
+		printf("Enter the weight of car no. %d", i + 1);
+		scanf("%d", &arr[i].weight);
+	}
+
+	return (0);
+}
+
+===================================================
+
+Problem 3:
+
+void print_info(struct Car info[], int index)
+{
+	printf("The Info for car no. %d\n", index + 1);
+	printf("Car ID: %d\n", info[index].carID);
+	printf("Model Name: %s\n", info[index].modelName);
+	printf("Maximum speed: %d\n", info[index].max_speed);
+	printf("Battery level: %d\n", info[index].battery_level);
+	printf("Car weight: %d\n", info[index].weight);
+}
+
+====================================================
+
+Problem 4:
+
+
+#include <stdio.h>
+#include <string.h>
+
+// Define the structure
+struct New_Car {
+    int id;
+    char name[10];
+    char mx_speed;
+    float battery;
+    double Kg;
+};
+
+// Function to assign data to the structure and return it
+struct New_Car assign_data(int id, const char name[10], char mx_speed, float battery, double Kg) {
+    struct New_Car car;
+
+    car.id = id;
+    strncpy(car.name, name, sizeof(car.name));
+    car.name[sizeof(car.name) - 1] = '\0'; // Ensure null-terminated string
+    car.mx_speed = mx_speed;
+    car.battery = battery;
+    car.Kg = Kg;
+
+    return car;
+}
+
+int main() {
+    struct New_Car myCar = assign_data(1, "Tesla", 'A', 80.5, 1500.0);
+
+    printf("Car ID: %d\n", myCar.id);
+    printf("Car Name: %s\n", myCar.name);
+    printf("Max Speed: %c\n", myCar.mx_speed);
+    printf("Battery: %f\n", myCar.battery);
+    printf("Weight: %lf\n", myCar.Kg);
+
+    return 0;
+}
+
+================================================================================================
+
+#include <stdio.h>
+
+// Define the structure
+struct new_car {
+    int id;
+    char name[10];
+    char mx_speed;
+    float battery;
+    double Kg;
+};
+
+// Function to assign data to the structure using a pointer
+void assign_data_w_ptr(struct new_car *car_ptr) {
+    car_ptr->id = 1;
+    strcpy(car_ptr->name, "Toyota");
+    car_ptr->mx_speed = 'B';
+    car_ptr->battery = 75.2;
+    car_ptr->Kg = 1300.0;
+}
+
+int main() {
+    struct new_car myCar;
+    
+    // Call the function to assign data to the structure
+    assign_data_w_ptr(&myCar);
+
+    printf("Car ID: %d\n", myCar.id);
+    printf("Car Name: %s\n", myCar.name);
+    printf("Max Speed: %c\n", myCar.mx_speed);
+    printf("Battery: %f\n", myCar.battery);
+    printf("Weight: %lf\n", myCar.Kg);
+
+    return 0;
+}
+
+=====================================================================================
+
+
+
+
+

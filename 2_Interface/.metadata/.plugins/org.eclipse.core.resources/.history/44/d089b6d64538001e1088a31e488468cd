@@ -1,0 +1,32 @@
+/*
+ * main.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+#include "ADC.h"
+#include "Bitwise.h"
+#include "DIO.h"
+#include "STD_Types.h"
+
+
+int main(void)
+{
+
+	ADMUX = 0b01000000;
+	Set_Bit(ADCSRA, ADEN);
+	uint16 value = 0;
+	while (1)
+	{
+		Set_Bit(ADCSRA, ADSC);
+		while(Read_Bit(ADCSRA, ADSC));
+		value = ADCHL * 0.0048;
+		if (value >= 0 || value <= 2)
+		{
+			Set_Bit();
+		}
+
+
+	}
+	return (0);
+}

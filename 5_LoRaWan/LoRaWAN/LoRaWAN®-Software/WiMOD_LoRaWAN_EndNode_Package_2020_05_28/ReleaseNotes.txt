@@ -1,0 +1,46 @@
+--------------------------------------------
+   WiMOD LoRaWAN EndNode Package release_notes.txt
+   2018 IMST GmbH
+--------------------------------------------
+
+
+.1 Content:
+----------------------------------------------------------------------------------------------------------
+This file contains an overview about the most important feature updates and bugfixes 
+----------------------------------------------------------------------------------------------------------
+
+.2 Supported Firmwares:
+--------------------------------------------------------------------------
+- WiMOD LoRaWAN EndNode Modem EU868
+- WiMOD LoRaWAN EndNode Modem US915
+- WiMOD LoRaWAN EndNode Modem IN865
+- WiMOD LoRaWAN EndNode Modem AS923
+
+.3 Revision History:
+--------------------------------------------------------------------------
+28.05.2020 - Release
+    - WiMOD LoRaWAN EndNode Modem EU868 V2.0 / Build Count 167 included
+    - WiMOD LoRaWAN EndNode Modem US915 V2.0 / Build Count 167 included
+    - WiMOD LoRaWAN EndNode Modem IN856 V2.0 / Build Count 167 included
+    - WiMOD LoRaWAN EndNode Modem AS923 V2.0 / Build Count 167 included
+    - WiMOD_LoRaWAN_EndNode_Modem_HCI_Spec updated
+    - WiMOD_LoRaWAN_EndNode_Modem_Feature_Spec updated
+
+12.09.2019 - Release
+    - WiMOD LoRaWAN EndNode Modem EU868 V2.0 / Build Count 159 included
+    - WiMOD LoRaWAN EndNode Modem US915 V2.0 / Build Count 159 included
+    - WiMOD LoRaWAN EndNode Modem IN856 V2.0 / Build Count 159 included
+    - WiMOD LoRaWAN EndNode Modem AS923 V2.0 / Build Count 159 included
+    - WiMOD_LoRaWAN_EndNode_Modem_HCI_Spec updated
+    - WiMOD_LoRaWAN_EndNode_Modem_Feature_Spec updated
+
+16.01.2019 - Release
+    - WiMOD LoRaWAN EndNode Modem IN856 V2.0 / Build Count 153 included
+
+28.02.2018 - Release
+    - WiMOD LoRaWAN EndNode Modem US915 V2.0 / Build Count 142 included
+    - WiMOD_LoRaWAN_EndNode_Modem_Feature_Spec updated
+    - WiMOD_LoRaWAN_EndNode_Modem_HCI_Spec updated
+
+06.02.2018 - Release
+    - WiMOD LoRaWAN EndNode Modem EU868 V2.0 / Build Count 137 included

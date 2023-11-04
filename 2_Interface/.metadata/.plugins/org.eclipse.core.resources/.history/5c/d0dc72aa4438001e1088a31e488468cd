@@ -1,0 +1,23 @@
+/*
+ * main.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+#include "ADC.h"
+#include "Bitwise.h"
+#include "DIO.h"
+#include "STD_Types.h"
+
+
+int main(void)
+{
+
+
+	while (1)
+	{
+		ADMUX = 0b01000000;
+		ADCSRA = 0b1;
+	}
+	return (0);
+}

@@ -1,0 +1,64 @@
+-Pointers: 
+	pointers are a place in memory that stores addresses
+	
+	for each created variable it has a name, address, and content
+	pointers content is the address of another variable.
+
+There are two things that need to know in pointers:
+1) Asterisk * :
+
+	- Used in defining a pointer
+		int *ptr;    <--- int IS NOT the type of pointer it is the type of variable the pointer points to.
+	Example:
+
+	int x = 4;	<---- Variable of type int.
+				Let's say x is stored at 0x00.
+
+	int *ptr;	<---- definition of a pointer that stores the address of a variable of type int.
+				Let's say ptr is stored at 0x70.
+	
+	ptr = &x;	<--- now the address 0x70's content is 0x00 (the address of variable x).
+
+	*ptr		<--- This get the content of the address stored in the ptr (0x00 content is 4)
+
+	- knowing the content of the address pointed by the pointer 
+		ptr stores the address of x ---> *ptr = x.	 
+
+	pointer size is equal to the address bus in the processor architecture.
+
+2) Address & :
+
+return the address of a variable 
+used in pointer assignment
+int *ptr = &x;
+
+
+Pointers in functions:
+Pointers are used to edit variables in a function and save the changes.
+
+at normal functions, you pass variables and the function does operations on the values of these functions,
+when the function terminates the passed arguments are not changed at all.
+
+passing pointers to a function allows the function to change the variables permanently.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

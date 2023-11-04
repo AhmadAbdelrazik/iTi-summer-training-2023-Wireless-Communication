@@ -1,0 +1,174 @@
+Content:
+- Loops
+- Functions 
+- MACROS
+
+-Loops:
+	every loop must contain three things
+	1. Initialization
+	2. Condition
+	3. Update
+
+There is three types of loops:
+1. For loop
+
+	for ( Initialization ; Condition ; Update )
+	{
+
+	}
+
+Example sum from 1 to 100
+
+	int i, sum = 0;
+	for (i = 1; i <= 100; i++)
+	{
+		sum += i;
+	}
+
+2. While loop
+
+	initialization;
+
+	while( Condition )
+	{
+
+
+		update;
+	}
+
+Example sum from 1 to 100
+
+	int i = 1;	// initialization
+	int sum = 0;
+	
+	while (i <= 100)
+	{
+	sum += i;
+	i++;	// update
+	}
+
+3. Do while loop ( Code is performed at least once.)
+
+	initialization;
+	
+	do
+	{
+
+
+	update;
+	}while (condition);
+
+Example sum from 1 to 100
+
+	int i = 1;	// initialization
+	int sum = 0;
+
+	do
+	{
+	sum += i;
+	i++;
+	}while (i <= 100);
+
+
+
+Prefix and postfix:
+
+Prefix:
+	++x;
+
+	the value is incremented first and then evaluated.
+
+Postfix 
+	x++;
+	the value is evaluated first and then incremented.
+
+
+-Functions:
+
+Return type	Function name( Parameters / Arguments )  <--- Prototype.
+
+			  Definition
+				|
+				|
+				!
+
+Return type	Function name( Parameters / Arguments )
+	{
+	/*
+	*
+	*
+		Function body.
+	*
+	*
+	}
+
+
+Example: 
+
+	int add (int a, int b)
+	{
+		int result;
+		result = a + b;
+		return (result); 	// Return type matches the type of the function.
+	}
+
+	It's prefered to write the prototype before main and the function definition after the main
+	Advanced: Later all the function's prototype will be collected in a header file.
+
+Example:
+
+	#include <stdio.h>
+
+	int add (int a, int b);
+
+	main ()
+	{
+		int x = 5, y = 6, z;
+		z = add(x, y);		// function calling 
+	}
+
+	int add (int a, int b)
+	{
+		int result;
+		result = a + b;
+		return (result); 	// Return type matches the type of the function.
+	}
+
+
+
+Example: 
+
+	void print_stars( void )    <---- Empty argument could be left empty without writing the word "void"
+	{
+		printf("*************\n");
+		printf("*************\n");
+	}
+
+
+-MACROS
+
+	#define and text replacement
+1. Object like Macro
+	#define PI 3.14  <--- any PI is changed to 3.14
+
+
+
+2. Function like Macro
+
+	#define square(n) ((n) * (n))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

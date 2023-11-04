@@ -1,0 +1,95 @@
+#include "ADC.h"
+#include "Bitwise.h"
+#include "DIO.h"
+#include "std_types.h"
+
+#define LAB1 		0
+#define LAB2 		0
+#define LAB_ADC 	0
+
+
+#if LAB1
+
+int main(void)
+{
+
+	Set_Bit(DDRA_REG, 1);	// Set PIN1 as output PIN
+	while (1)
+	{
+		Set_Bit(PORTA_REG, 1); 	// Set PIN1 output to HIGH. (Send signal to the led).
+	}
+	return (0);
+}
+
+#endif
+
+#if LAB2
+
+int main(void)
+{
+	Set_Bit(DDRA_REG, 1);	// Set PIN1 as Output PIN
+	Clr_Bit(DDRA_REG, 2);	// Set PIN2 as Input PIN
+
+	while(1)
+	{
+		if (Read_Bit(DDRA_REG, 2))	// Read PIN2 Input
+		{
+			Set_Bit(DDRA_REG, 1);	// Set PIN1 output to HIGH
+		}
+		else
+		{
+			Clr_Bit(DDRA_REG, 1);	// Set PIN1 output to LOW
+		}
+	}
+	return (0);
+}
+
+#endif
+
+#if LAB_ADC
+
+int main(void)
+{
+
+	ADCSRA = 0b00000111;
+	uint64 value = 0;
+
+	Set_Bit(DDRD_REG, 0);
+	Set_Bit(DDRD_REG, 1);
+	Set_Bit(DDRD_REG, 3);
+	Set_Bit(ADCSRA, ADEN);
+
+	while (1)
+	{
+		ADMUX = 0b01000000;
+		Set_Bit(ADCSRA, ADSC);
+
+		while(Read_Bit(ADCSRA, ADSC));
+
+		value = (ADCHL * 50) / 1024;
+
+		if (value >= 0 && value <= 10)
+		{
+			Set_Bit(PORTD_REG,0);
+			Clr_Bit(PORTD_REG,1);
+			Clr_Bit(PORTD_REG,3);
+		}
+		else if (value > 10 && value <= 30)
+		{
+			Set_Bit(PORTD_REG,1);
+			Clr_Bit(PORTD_REG,0);
+			Clr_Bit(PORTD_REG,3);
+		}
+		else if(value > 30)
+		{
+			Set_Bit(PORTD_REG,3);
+			Clr_Bit(PORTD_REG,1);
+			Clr_Bit(PORTD_REG,0);
+		}
+
+	}
+	return (0);
+}
+
+#endif
+

@@ -1,0 +1,61 @@
+Exercise 1:
+------------
+
+#include <stdio.h>
+
+int main()
+{
+	int arr[8], i, even = 0, odd = 0;
+
+	printf("Enter 8 values: ");
+	for (i = 0; i < 8; i++)
+	{
+		scanf("%d", &arr[i]);
+		arr[i] % 2 ? odd++ : even++;
+	}
+	printf("number of odd values = %d\n", odd);
+	printf("number of even values = %d\n", even);
+	return (0);
+}
+
+-----------
+Exercise 2:
+-----------
+
+#include <stdio.h>
+
+void double_array(int arr[], int size);
+void print_array(int arr[], int size);
+
+
+int main()
+{
+  int arr[10], i;
+  for (i = 0; i < 10; i++)
+  {
+    printf("Enter element no %d : ", i + 1);
+    scanf("%d", &arr[i]);
+  }
+  print_array(arr, 10);
+  double_array(arr, 10);
+  print_array(arr, 10);
+  return (0);
+}
+
+void double_array(int arr[], int size)
+{
+  int i;
+  for (i = 0; i < size; i++)
+    arr[i] = 2 * arr[i];
+}
+
+void print_array(int arr[], int size)
+{
+  int i;
+  printf("Elements of the array are: ");
+  for (i = 0; i < size; i++)
+    printf("%d ", arr[i]);
+  printf("\n");
+}
+
+

@@ -1,0 +1,357 @@
+Problem 1:
+
+#include <stdio.h>
+
+int divide(int a, int b);
+
+int main(void)
+{
+  int a, b, sum = 0;
+  printf("Enter the two numbers to divide\n");
+  scanf("%d %d", &a, &b);
+  if (b == 0)
+  {
+    printf("Can't divide on 0\n");
+  }
+  else
+  {
+    sum = divide(a, b);
+    printf("Sum = %d\n", sum);
+  }
+  return 0;
+}
+
+int divide(int a, int b)
+{
+  return (a / b);
+}
+
+Problem 2:
+
+#include <stdio.h>
+
+int binary(int a);
+
+int main(void)
+{
+  int number, digits = 0;
+  printf("Enter the number: \n");
+  scanf("%d", &number);
+  digits = binary(number);
+  printf("%d", digits);
+  return (0);
+}
+
+int binary(int a)
+{
+  int digit = 0;
+  if (a == 0)
+    return 1;
+  
+  while (a)
+  {
+    a /= 2;
+    digit++;
+  }
+  return (digit);
+}
+
+Problem 3:
+
+#include <stdio.h>
+
+int binary_Digits(int number);
+
+
+int main(void)
+{
+  int number, digits = 0;
+  printf("Enter the number:\n");
+  scanf("%d", &number);
+  digits = binary_Digits(number);
+  printf("The longest sequential number is %d\n", digits);
+  return (0);
+}
+
+int binary_Digits(int number)
+{
+  int digits = 0, maximum = 0, ones = 0;
+  while (number)
+  {
+    if (number % 2)
+    {
+      ones++;
+      if (maximum < digits)
+      {
+        maximum = digits;
+      }
+      digits = 0;
+    }
+    else if (ones)
+      digits++;
+    number /= 2;
+  }
+  if (ones < 2)
+  {
+    return (-1);
+  }
+  return (maximum);
+}
+
+Problem 4: 
+#include <stdio.h>
+
+int multiply(int num1, int num2);
+
+
+int main(void)
+{
+  int num1, num2, result = 0;
+  printf("Enter the two number to be multiplied(Let the second be the smallest)\n");
+  scanf("%d %d", &num1, &num2);
+  result = multiply(num1, num2);
+  printf("The result = %d\n", result);
+  return 0;
+}
+
+int multiply(int num1, int num2)
+{
+  int sum = 0,sign = 0;
+  if (num2 < 0)
+  {
+    sign = 1;
+    num2 *= -1;
+  }
+  while(num2--)
+  {
+    sum += num1;
+  }
+  if (sign)
+    return (-sum);
+  else
+    return(sum);
+}
+
+Problem 5:
+
+#include <stdio.h>
+
+int sum_Between(int num1, int num2);
+
+
+int main(void)
+{
+  int num1, num2, result = 0;
+  printf("Enter the two number to sum all between them \n");
+  scanf("%d %d", &num1, &num2);
+  result = sum_Between(num1, num2);
+  printf("Result = %d", result);
+  return (0);
+}
+
+int sum_Between(int num1, int num2)
+{
+  int sum = 0;
+  if (num1 > num2)
+  {
+    num1 = num1 + num2;
+    num2 = num1 - num2;
+    num1 = num1 - num2;
+  }
+
+  for (int i = num1 + 1; i < num2; i++)
+  {
+    sum += i;
+  }
+  return (sum);
+}
+
+Problem 6:
+
+#include <stdio.h>
+
+int pwr(int number, int power);
+
+int main(void)
+{
+  int number, power, result = 0;
+  printf("Enter the number followed by the power\n");
+  scanf("%d %d", &number, &power);
+  if (number || power)
+  {
+    result = pwr(number, power);
+    printf("Result = %d", result);
+  }
+  else
+    printf("0 ^ 0 is invalid");
+  return 0;
+}
+
+int pwr(int number, int power)
+{
+  int result = 1;
+  while (power--)
+  {
+    result *= number;
+  }
+  return (result);
+}
+
+Problem 7:
+
+#include <stdio.h>
+
+void swapper(int *x, int *y);
+
+int main(void)
+{
+  int num1, num2;
+  printf("Enter the two numbers to swap\n");
+  scanf("%d %d", &num1, &num2);
+  swapper(&num1, &num2);
+  printf("num1 = %d num2 = %d", num1, num2);
+  return 0;
+}
+
+void swapper(int *x, int *y)
+{
+  int temp;
+  temp = *x;
+  *x = *y;
+  *y = temp;
+}
+
+Problem 8:
+
+#include <stdio.h>
+
+void fibonacci(int n);
+
+int main()
+{
+    int n;
+    printf("Enter the number of Fibonacci: ");
+    scanf("%d", &n);
+    fibonacci(n);
+    return (0);
+}
+
+void fibonacci(int n)
+{
+    int f1 = 0, f2 = 1, i;
+    if (n >= 1)
+        printf("0\n");
+    if (n >= 2)
+        printf("1\n");
+    for(i = 2; i < n; i++)
+    {
+        f2 = f1 + f2;
+        f1 = f2 - f1;
+        printf("%d\n", f2);
+    }
+}
+
+
+Problem 9:
+
+#include <stdio.h>
+
+void binary(int n);
+
+int main()
+{
+    int n;
+    printf("Enter the number: ");
+    scanf("%d", &n);
+    binary(n);
+    return 0;
+}
+
+void binary(int n)
+{
+    if(n)
+        binary(n / 2);
+    printf("%d", n % 2);
+}
+
+
+Problem 10:
+
+
+#include <stdio.h>
+
+#define clearbit(number, bit) ( (number) = (number) & (~(1 << bit)))
+#define setbit(number, bit) ( (number) = (number) | ((1 << bit)))
+#define togglebit(number, bit) ( (number) = (number) ^ ((1 << bit)))
+#define readbit(number, bit) ( ( ( (number) & (1 << bit) ) > 0) ? (1) : (0) )
+
+
+int main(void)
+{
+  int x;
+  printf("Enter the number: ");
+  scanf("%d", &x);
+  printf("x = %d\n", x);
+  clearbit(x,1);
+  printf("x = %d\n", x);
+  setbit(x,2);
+
+
+  printf("x = %d\n", x);
+  togglebit(x,0);
+  printf("x = %d\n", x);
+  printf("bit number 3 = %d\n", readbit(x, 3));
+  
+
+  return (0);
+}
+
+
+Problem 11:
+
+#include <stdio.h>
+
+
+void print_triangle(int l);
+void print_square(int l);
+
+int main()
+{
+    int sq_length, tr_length;
+    printf("Enter the length of the Square\n");
+    scanf("%d", &sq_length);
+    printf("Enter the length of the Triangle\n");
+    scanf("%d", &tr_length);
+    printf("Square: \n");
+    print_square(sq_length);
+    printf("Triangle:\n");
+    print_triangle(tr_length);
+    return 0;
+}
+
+void print_square(int n)
+{
+    int i, j;
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+}
+
+
+void print_triangle(int n)
+{
+    int i, j;
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j <= i; j++)
+        {
+            printf("* ");
+        }
+        printf("\n");
+    }
+}

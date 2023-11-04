@@ -1,0 +1,42 @@
+/*
+ * Mem_Maps.c
+ *
+ *  Created on: ???/???/????
+ *      Author: Ahmed Abdelrazik
+ */
+#include "Mem_Maps.h"
+#include "Bitwise.h"
+
+void UART_init()
+{
+	// configure UCSRA
+	Clr_Bit(UCSRA, U2X);
+	Clr_Bit(UCSRA, MPCM);
+
+	// configure UCSRB
+
+	Set_Bit(UCSRB, TXEN);
+	Set_Bit(UCSRB, RXEN);
+	Clr_Bit(UCSRB, UCSZ2);
+
+	// configure UBRR
+	UBRRH = 0;
+	UBRRL = 51;
+
+	// configure UCSRC
+
+	UCSRC = 0b10000110;
+}
+
+void UART_Tx(uint8 VALUE)
+{
+	while (!Read_Bit(UCSRA, UDRE));
+	UDR = VALUE;
+}
+
+uint8 UART_Rx()
+{
+	while(!Read_Bit(UCSRA, RXC));
+
+	return (UDR);
+}

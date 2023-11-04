@@ -1,0 +1,60 @@
+1. 
+Installed Ubuntu
+
+2.
+cat prints the whole file once, more prints window by window.
+
+3.
+rm used to remove files, rmdir used to remove empty directories.
+
+4.
+mkdir dir1 docs dir1/dir11 dir1/dir12
+touch dir1/dir11/file docs/mycv
+
+a.
+rm -r dir1/dir11	if used with rmdir would give error that dir11 is not empty.
+
+b.
+rm -p dir1/dir12	removes dir12 and it's parent dir1
+
+c.
+Absolute path$ /home/user/docs/mycv
+Relative path$ docs/mycv
+
+5.
+cp /etc/passwd home/mypasswd
+
+
+6.
+mv mypasswd oldpasswd
+
+7.
+cd /home/user
+cd 
+cd ~
+cd $HOME
+
+8.
+ls /usr/bin/w*
+
+9.
+head -n4 /etc/passwd
+
+10.
+tail -n7 /etc/passwd
+
+11.
+man passwd && man 5 passwd
+
+12.
+man 5 passwd
+
+13.
+apropos passwd
+
+
+
+
+
+
+
